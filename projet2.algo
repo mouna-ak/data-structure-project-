@@ -1,0 +1,41 @@
+ALGORITHME	projet2
+
+VAR
+	t1 : array_of integer[4];
+	t2 : array_of integer[5];
+	som : integer;
+	x : BOOLEAN := false;
+BEGIN
+	som := 0;
+	x  := 0;
+	t1 := [3,1,7,9];
+	t2 := [2,4,1,9,3];
+ 	
+	FOR  i  FROM 0 TO  t1.length-1
+		FOR j FROM 0 TO  t2.length-1
+			IF ( t1[i] = t2[j] )
+				x :=  true;
+			END_IF
+		END_FOR	
+
+		IF ( x = false)
+			som :=  som + t1[i];
+		END_IF
+		x  := false;
+	END_FOR	
+
+    FOR  i  FROM 0 TO  t2.length-1
+		FOR j FROM 0 TO  t1.length-1
+			IF ( t2[i] = t1[j] )
+				x :=  true;
+			END_IF
+		END_FOR	
+
+		IF ( x = false)
+			som :=  som + t2[i];
+		END_IF
+		x  := false;
+	END_FOR
+
+	WRITE ( som );
+END
